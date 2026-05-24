@@ -86,10 +86,42 @@ nav ul li{
 
 .video-btn video{
   position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  filter:blur(10%);
+  filter:blur(2px); /* ~2% feel */
+  transform:scale(1.05); /* avoid edge clipping after blur */
+  will-change:transform, filter;
+}
+
+/* subtle overlay to avoid text glitch */
+.video-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.15);
+}
+
+.video-btn span{
+  position:relative;
+  z-index:2;
+  color:white;
+  font-weight:bold;
+  line-height:60px;
+  pointer-events:none;
+}
+
+.video-btn{
+  position:relative;
+  margin-top:25px;
+  width:220px;
+  height:60px;
+  border-radius:40px;
+  overflow:hidden;
+  cursor:pointer;
+  display:inline-block;
+  transition:transform .25s ease;
 }
 
 .video-btn span{
@@ -163,4 +195,5 @@ function goPage(page){
 
 </body>
 </html>
+
 
