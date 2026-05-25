@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UG World - Registration</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+
+/* BACKGROUND IMAGE */
+body{
+  height:100vh;
+  overflow:hidden;
+  background:url('bg1.png') no-repeat center center/cover;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  position:absolute;
+  width:100%;
+  top:0;
+  padding:20px;
+}
+
+.nav-container{
+  width:90%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:12px;
+}
+
+nav ul{
+  display:flex;
+  gap:30px;
+  list-style:none;
+  padding:10px 25px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(6px);
+}
+
+nav ul li{cursor:pointer;}
+
+/* FORM */
+.container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.form-box{
+  width:350px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(5px);
+  text-align:center;
+}
+
+.form-box h2{
+  margin-bottom:15px;
+}
+
+input,select{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  background:black;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-container">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" class="logo">
+      <span style="font-weight:600;">UG World</span>
+    </div>
+
+    <ul>
+      <li onclick="goPage('index.html')">Home</li>
+      <li onclick="goPage('about.html')">About</li>
+      <li onclick="goPage('social.html')">Social</li>
+      <li onclick="goPage('ceo.html')">CEO</li>
+      <li onclick="goPage('agenda.html')">Agenda</li>
+    </ul>
+
+    <div></div>
+  </div>
+</nav>
+
+<!-- FORM -->
+<div class="container">
+  <div class="form-box">
+    <h2>Registration</h2>
+
+    <form action="https://formspree.io/f/mlgvwoeb" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Gmail" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option>App Development</option>
+        <option>Web Development</option>
+      </select>
+
+      <select name="type" required>
+        <option value="">Select Type</option>
+        <option>Frontend</option>
+        <option>Backend</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+</div>
+
+<script>
+function goPage(page){
+  window.location.href = page;
+}
+</script>
+
+</body>
+</html>
