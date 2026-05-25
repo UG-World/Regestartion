@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - UG World</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+
+body{
+  background:url('bg2.png') no-repeat center center/cover;
+  min-height:100vh;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  position:absolute;
+  width:100%;
+  top:0;
+}
+
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:10px;
+}
+
+.back-btn{
+  padding:8px 15px;
+  border:none;
+  border-radius:20px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  cursor:pointer;
+}
+
+/* CONTENT */
+.container{
+  padding-top:100px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.about-box{
+  max-width:700px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(5px);
+  padding:25px;
+  border-radius:20px;
+}
+
+.about-box h1{
+  margin-bottom:15px;
+}
+
+.about-box p{
+  margin-bottom:10px;
+  line-height:1.6;
+}
+
+/* CEO CARD */
+.ceo-card{
+  margin-top:30px;
+  padding:20px;
+  width:250px;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(5px);
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.ceo-card:hover{
+  transform:scale(1.05);
+}
+
+.ceo-img{
+  width:80px;
+  height:80px;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+/* MOBILE */
+@media (max-width:480px){
+  .about-box{
+    padding:20px;
+  }
+
+  .ceo-card{
+    width:90%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-box">
+    <img src="logo.jpg" class="logo">
+    <span style="font-weight:600;">UG World</span>
+  </div>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="about-box">
+    <h1>About UG World</h1>
+
+    <p>UG World is a modern startup tech company focused on building the next generation of developers. We specialize in teaching and guiding students in App Development, Web Development, Frontend, and Backend technologies.</p>
+
+    <p>Our mission is to help individuals turn their ideas into real-world digital products like Android apps, websites, and powerful web applications. We believe in practical learning, real projects, and building skills that actually matter in today’s tech industry.</p>
+
+    <p>UG World is not just a platform, it is a growing community where creators, developers, and innovators come together to learn, build, and grow.</p>
+
+    <p>Whether you are a beginner or someone looking to level up, UG World helps you move forward in your tech journey with clarity and confidence.</p>
+
+  </div>
+
+  <!-- CEO CARD -->
+  <div class="ceo-card" onclick="goCEO()">
+    <img src="ceo.jpg" class="ceo-img">
+    <h3>Mr. Utsav Gupta</h3>
+    <p>CEO of UG World</p>
+  </div>
+</div>
+
+<script>
+function goBack(){
+  window.location.href = "index.html";
+}
+
+function goCEO(){
+  window.location.href = "ceo.html";
+}
+</script>
+
+</body>
+</html>
