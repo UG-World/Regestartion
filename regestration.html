@@ -8,53 +8,43 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
 
-/* BACKGROUND IMAGE */
 body{
   height:100vh;
   overflow:hidden;
   background:url('bg1.png') no-repeat center center/cover;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-/* NAV */
+/* NAV SIMPLIFIED */
 nav{
-  display:flex;
-  justify-content:center;
-  position:absolute;
-  width:100%;
-  top:0;
-  padding:20px;
-}
-
-.nav-container{
-  width:90%;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:15px 20px;
+  position:absolute;
+  width:100%;
+  top:0;
+}
+
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
 .logo{
-  width:45px;
-  height:45px;
-  border-radius:12px;
+  width:40px;
+  height:40px;
+  border-radius:10px;
 }
 
-nav ul{
-  display:flex;
-  gap:30px;
-  list-style:none;
-  padding:10px 25px;
-  border-radius:30px;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(6px);
+.back-btn{
+  padding:8px 15px;
+  border:none;
+  border-radius:20px;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  cursor:pointer;
 }
-
-nav ul li{cursor:pointer;}
 
 /* FORM */
 .container{
@@ -62,11 +52,13 @@ nav ul li{cursor:pointer;}
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:10px;
 }
 
 .form-box{
-  width:350px;
-  padding:25px;
+  width:90%;
+  max-width:350px;
+  padding:20px;
   border-radius:20px;
   background:rgba(255,255,255,0.2);
   backdrop-filter:blur(5px);
@@ -79,13 +71,13 @@ nav ul li{cursor:pointer;}
 
 input,select{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin:10px 0;
   border:none;
   border-radius:10px;
 }
 
-button{
+button.submit{
   width:100%;
   padding:12px;
   border:none;
@@ -95,28 +87,35 @@ button{
   cursor:pointer;
 }
 
+/* MOBILE */
+@media (max-width:480px){
+  .logo{
+    width:35px;
+    height:35px;
+  }
+
+  .back-btn{
+    padding:6px 12px;
+    font-size:12px;
+  }
+
+  .form-box{
+    padding:18px;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-container">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <img src="logo.jpg" class="logo">
-      <span style="font-weight:600;">UG World</span>
-    </div>
-
-    <ul>
-      <li onclick="goPage('index.html')">Home</li>
-      <li onclick="goPage('about.html')">About</li>
-      <li onclick="goPage('social.html')">Social</li>
-      <li onclick="goPage('ceo.html')">CEO</li>
-      <li onclick="goPage('agenda.html')">Agenda</li>
-    </ul>
-
-    <div></div>
+  <div class="logo-box">
+    <img src="logo.png" class="logo">
+    <span style="font-weight:600;">UG World</span>
   </div>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
 </nav>
 
 <!-- FORM -->
@@ -141,17 +140,18 @@ button{
         <option>Backend</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button class="submit" type="submit">Submit</button>
     </form>
 
   </div>
 </div>
 
 <script>
-function goPage(page){
-  window.location.href = page;
+function goBack(){
+  window.location.href = "index.html";
 }
 </script>
 
 </body>
 </html>
+
