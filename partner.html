@@ -131,6 +131,7 @@ button{
   </div>
 
   
+  <button class="back-btn" onclick="goBack()">Back</button>
 </nav>
 
 <!-- FORM -->
@@ -145,11 +146,12 @@ button{
       <input type="tel" name="phone" placeholder="Phone Number" required>
 
       <select name="skill" required>
-        <option value="">Select Skills</option>
+        <option value="">Select Skill</option>
         <option>App Developer</option>
         <option>Web Developer</option>
+        <option>Frontend developer</option>
+        <option>Backend developer</option>
         <option>Full stack developer</option>
-        <option>Frontent developer</option>
       </select>
 
       <select name="experience" required>
@@ -159,7 +161,7 @@ button{
         <option>Advanced</option>
       </select>
 
-      <textarea name="message" placeholder="Why do you want to join team UG World?" required></textarea>
+      <textarea name="message" placeholder="Why do you want to join UG World?" required></textarea>
 
       <button type="submit">Apply Now</button>
     </form>
@@ -173,11 +175,14 @@ function goBack(){
 }
 function redirectHome(e){
   e.preventDefault();
-  window.location.href = "index.html";
+  alert("Thank you for applying to UG World 🚀
+
+We have received your application successfully. Our team will review your details and contact you within 24 hours.");
 }
 
 </script>
 
 </body>
 </html>
+
 
