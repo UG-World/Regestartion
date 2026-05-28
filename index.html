@@ -120,8 +120,8 @@ nav ul li{cursor:pointer;white-space:nowrap;}
       <li onclick="goPage('index.html')">Home</li>
       <li onclick="goPage('about.html')">About</li>
       <li onclick="goPage('social.html')">Social</li>
-      <li onclick="goPage('members.html')">Members</li>
-      <li onclick="goPage('agenda.html')">Agenda</li>
+      <li onclick="goPage('members.html')">Founders</li>
+      <li onclick="goPage('agenda.html')">Services</li>
     </ul>
 
     <button class="partner-btn" onclick="checkAccess()">Join as Partner</button>
@@ -155,7 +155,7 @@ function goPage(page){
 function checkAccess(){
   const code = prompt("Enter Access Code");
 
-  if(code === "UGPARTNER2026"){
+  if(code === "UGPARTNER2010"){
     window.location.href = "partner.html";
   } else {
     alert("Invalid Code ❌");
