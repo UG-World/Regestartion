@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UG World - Services</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body{
+      background:
+      radial-gradient(circle at top left,#1e3c72 0%,transparent 30%),
+      radial-gradient(circle at bottom right,#2a5298 0%,transparent 30%),
+      linear-gradient(135deg,#0f172a,#111827,#1e293b);
+      min-height:100vh;
+      overflow-x:hidden;
+      color:white;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      height:80px;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:0 20px;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo-box{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      overflow:hidden;
+      background:white;
+      box-shadow:0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .logo-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .company-name{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    /* CENTER NAV ITEMS */
+
+    .nav-center{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .nav-link{
+      text-decoration:none;
+      color:#e2e8f0;
+      font-weight:600;
+      padding:10px 20px;
+      border-radius:14px;
+      transition:0.3s;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+    }
+
+    .nav-link:hover{
+      background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(59,130,246,0.3);
+    }
+
+    .nav-link.active{
+      background:linear-gradient(135deg,#06b6d4,#3b82f6);
+      color:white;
+    }
+
+    .back-btn{
+      text-decoration:none;
+      color:white;
+      background:linear-gradient(135deg,#3b82f6,#06b6d4);
+      padding:12px 22px;
+      border-radius:14px;
+      font-weight:600;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(59,130,246,0.3);
+    }
+
+    .back-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* PAGE */
+
+    .container{
+      width:100%;
+      padding:40px 20px 70px;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .title h1{
+      font-size:3rem;
+      font-weight:800;
+      background:linear-gradient(to right,#60a5fa,#22d3ee,#c084fc);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .title p{
+      margin-top:12px;
+      color:#cbd5e1;
+      font-size:1rem;
+    }
+
+    /* GRID */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    /* CARD */
+
+    .card{
+      position:relative;
+      overflow:hidden;
+
+      border-radius:28px;
+
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+
+      backdrop-filter:blur(15px);
+
+      min-height:270px;
+
+      transition:0.4s ease;
+
+      text-decoration:none;
+      color:white;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      padding:30px;
+    }
+
+    .card:hover{
+      transform:translateY(-10px) scale(1.02);
+      box-shadow:0 25px 50px rgba(0,0,0,0.4);
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:200px;
+      height:200px;
+      background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+      border-radius:50%;
+      top:-80px;
+      right:-80px;
+      opacity:0.18;
+    }
+
+    .service-logo{
+      width:90px;
+      height:90px;
+      border-radius:24px;
+      overflow:hidden;
+      margin-bottom:22px;
+      background:white;
+      box-shadow:0 12px 25px rgba(0,0,0,0.3);
+      z-index:2;
+    }
+
+    .service-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .service-name{
+      font-size:1.3rem;
+      font-weight:700;
+      margin-bottom:12px;
+      text-align:center;
+      z-index:2;
+    }
+
+    .status{
+      padding:8px 18px;
+      border-radius:50px;
+      font-size:0.9rem;
+      font-weight:600;
+      z-index:2;
+    }
+
+    .live{
+      background:rgba(34,197,94,0.2);
+      color:#4ade80;
+      border:1px solid rgba(74,222,128,0.4);
+    }
+
+    .coming{
+      background:rgba(251,191,36,0.15);
+      color:#facc15;
+      border:1px solid rgba(250,204,21,0.35);
+    }
+
+    .pending{
+      background:rgba(239,68,68,0.15);
+      color:#f87171;
+      border:1px solid rgba(248,113,113,0.3);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      nav{
+        height:auto;
+        padding:18px;
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .nav-center{
+        position:static;
+        transform:none;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .company-name{
+        font-size:1.1rem;
+      }
+
+      .back-btn{
+        padding:10px 16px;
+        font-size:0.9rem;
+      }
+
+      .title h1{
+        font-size:2rem;
+      }
+
+      .card{
+        min-height:240px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="nav-left">
+
+      <div class="logo-box">
+        <img src="logo.jpg" alt="UG World Logo">
+      </div>
+
+      <div class="company-name">
+        UG WORLD
+      </div>
+
+    </div>
+
+    <!-- CENTER NAVIGATION -->
+
+    <div class="nav-center">
+
+      <a href="services.html" class="nav-link">
+        SaaS
+      </a>
+
+      <a href="entertainment.html" class="nav-link">
+        Entertainment
+      </a>
+
+      <a href="services.html" class="nav-link active">
+        Services
+      </a>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+      ← Back
+    </a>
+
+  </nav>
+
+  <!-- CONTENT -->
+
+  <div class="container">
+
+    <div class="title">
+      <h1>Our Services</h1>
+      <p>Professional Digital Solutions by UG World</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- CARD 1 -->
+
+      <a href="https://github.com/" target="_blank" class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+        
+        </div>
+
+        <div class="status live">
+          Live Service
+        </div>
+
+      </a>
+
+      <!-- CARD 2 -->
+
+      <a href="https://github.com/" target="_blank" class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Cloud
+        </div>
+
+        <div class="status live">
+          Live Service
+        </div>
+
+      </a>
+
+      <!-- CARD 3 -->
+
+      <a href="https://github.com/" target="_blank" class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          AI Studio
+        </div>
+
+        <div class="status live">
+          Live Service
+        </div>
+
+      </a>
+
+      <!-- CARD 4 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Hosting
+        </div>
+
+        <div class="status coming">
+          Coming Soon
+        </div>
+
+      </div>
+
+      <!-- CARD 5 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Marketplace
+        </div>
+
+        <div class="status coming">
+          Coming Soon
+        </div>
+
+      </div>
+
+      <!-- CARD 6 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          Creator Hub
+        </div>
+
+        <div class="status coming">
+          Coming Soon
+        </div>
+
+      </div>
+
+      <!-- CARD 7 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Analytics
+        </div>
+
+        <div class="status coming">
+          Coming Soon
+        </div>
+
+      </div>
+
+      <!-- CARD 8 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          Secure Auth
+        </div>
+
+        <div class="status pending">
+          Pending
+        </div>
+
+      </div>
+
+      <!-- CARD 9 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Payments
+        </div>
+
+        <div class="status pending">
+          Pending
+        </div>
+
+      </div>
+
+      <!-- CARD 10 -->
+
+      <div class="card">
+
+        <div class="service-logo">
+          <img src="logo.jpg" alt="">
+        </div>
+
+        <div class="service-name">
+          UG Connect
+        </div>
+
+        <div class="status pending">
+          Pending
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
