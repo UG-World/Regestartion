@@ -1,3 +1,6 @@
+
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,66 +21,53 @@ body{
   min-height:100vh;
 
   background:
-  linear-gradient(
-  135deg,
-  #0b1020 0%,
-  #111827 20%,
-  #1e293b 40%,
-  #312e81 65%,
-  #0f172a 85%,
-  #020617 100%
-  );
+  linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+  url('bg5.png');
 
-  background-size:400% 400%;
-  animation:bgMove 15s ease infinite;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 
   color:white;
 }
 
-/* PREMIUM ANIMATED GRADIENT */
-
-@keyframes bgMove{
-
-  0%{
-    background-position:0% 50%;
-  }
-
-  50%{
-    background-position:100% 50%;
-  }
-
-  100%{
-    background-position:0% 50%;
-  }
-
-}
-  
 /* NAV */
 
 nav{
   width:100%;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
 
-  padding:18px 25px;
+  padding:20px 35px;
+
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  backdrop-filter:blur(10px);
+
+  background:rgba(0,0,0,0.25);
 }
 
 .logo-side{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .logo{
-  width:42px;
-  height:42px;
-  border-radius:12px;
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  object-fit:cover;
 }
 
 .logo-name{
+  font-size:18px;
   font-weight:600;
-  font-size:17px;
 }
 
 /* NAV CENTER */
@@ -85,115 +75,140 @@ nav{
 .nav-center{
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:12px;
 
-  padding:10px 18px;
+  padding:10px 15px;
 
-  border-radius:30px;
+  border-radius:40px;
 
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(6px);
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(10px);
 }
 
 .nav-btn{
   text-decoration:none;
-  color:#111;
+  color:white;
 
   padding:10px 18px;
-  border-radius:20px;
+
+  border-radius:18px;
 
   transition:0.3s;
+
+  font-size:15px;
 }
 
-.nav-btn{
-  color:white;
+.nav-btn:hover{
+  background:rgba(255,255,255,0.12);
 }
+
 /* BACK BUTTON */
 
 .back-btn{
   text-decoration:none;
 
-  background:black;
-  color:white;
+  background:white;
+  color:black;
 
   padding:10px 18px;
-  border-radius:20px;
+
+  border-radius:18px;
 
   transition:0.3s;
+
+  font-weight:600;
 }
 
 .back-btn:hover{
   transform:scale(1.05);
 }
 
-/* PAGE */
+/* CONTENT */
 
 .container{
   width:100%;
-  padding:40px 20px 80px;
+  padding:70px 20px 80px;
 }
 
 /* TITLE */
 
 .title{
   text-align:center;
-  margin-bottom:50px;
+  margin-bottom:60px;
 }
 
 .title h1{
-  font-size:50px;
-  margin-bottom:12px;
+  font-size:58px;
+  margin-bottom:15px;
 }
 
 .title p{
- color:#cbd5e1;
-  max-width:700px;
+  color:#d1d5db;
+  max-width:760px;
   margin:auto;
-  line-height:1.6;
+  line-height:1.8;
+  font-size:17px;
 }
 
-/* CARDS */
+/* SERVICES */
 
 .services{
   width:100%;
-  max-width:900px;
+  max-width:1000px;
 
   margin:auto;
 
   display:grid;
   grid-template-columns:repeat(2,1fr);
 
-  gap:25px;
+  gap:28px;
 }
 
-.nav-center,
 .card{
   background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
+
   border:1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:28px;
+
+  padding:35px 30px;
+
+  text-align:center;
+
+  transition:0.35s;
 }
-  
+
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
+
+  background:rgba(255,255,255,0.12);
 }
 
 .card img{
-  width:85px;
-  height:85px;
+  width:90px;
+  height:90px;
 
-  border-radius:20px;
+  object-fit:cover;
 
-  margin-bottom:18px;
+  border-radius:22px;
+
+  margin-bottom:20px;
 }
 
 .card h2{
-  margin-bottom:10px;
+  margin-bottom:12px;
+  font-size:26px;
 }
 
 .card p{
-color:#cbd5e1;
-  line-height:1.6;
-  margin-bottom:20px;
+  color:#d1d5db;
+  line-height:1.8;
+  margin-bottom:25px;
+  font-size:15px;
 }
 
 /* STATUS */
@@ -201,22 +216,24 @@ color:#cbd5e1;
 .status{
   display:inline-block;
 
-  padding:8px 18px;
+  padding:10px 20px;
 
   border-radius:20px;
 
-  background:black;
-  color:white;
+  background:white;
+  color:black;
 
   font-size:14px;
+  font-weight:600;
 }
 
 /* FOOTER */
 
 footer{
   text-align:center;
-  margin-top:70px;
-  color:#666;
+  margin-top:80px;
+  color:#cbd5e1;
+  font-size:14px;
 }
 
 /* MOBILE */
@@ -224,21 +241,78 @@ footer{
 @media(max-width:768px){
 
   nav{
-    flex-direction:column;
-    gap:15px;
+    padding:14px 15px;
+    gap:10px;
+  }
+
+  .logo{
+    width:38px;
+    height:38px;
+  }
+
+  .logo-name{
+    font-size:15px;
   }
 
   .nav-center{
-    flex-wrap:wrap;
-    justify-content:center;
+    gap:5px;
+    padding:7px;
+    overflow-x:auto;
+    white-space:nowrap;
+    max-width:42%;
+  }
+
+  .nav-center::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-btn{
+    padding:8px 12px;
+    font-size:12px;
+  }
+
+  .back-btn{
+    padding:8px 14px;
+    font-size:13px;
   }
 
   .title h1{
-    font-size:34px;
+    font-size:38px;
+  }
+
+  .title p{
+    font-size:15px;
+    line-height:1.7;
   }
 
   .services{
     grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:28px 22px;
+  }
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+  nav{
+    justify-content:space-between;
+  }
+
+  .logo-name{
+    display:none;
+  }
+
+  .nav-center{
+    max-width:48%;
+  }
+
+  .title h1{
+    font-size:32px;
   }
 
 }
@@ -273,7 +347,7 @@ footer{
     </a>
 
     <a href="services.html" class="nav-btn">
-      Saas Tools
+      SaaS Tools
     </a>
 
   </div>
@@ -343,7 +417,13 @@ footer{
 
   </div>
 
+  <footer>
+    © 2026 UG World. All Rights Reserved.
+  </footer>
+
 </div>
 
 </body>
 </html>
+```
+
