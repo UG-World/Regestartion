@@ -20,14 +20,38 @@ body{
   background:
   linear-gradient(
   135deg,
-  #f5f1e8,
-  #f8f5ef,
-  #ece7dc,
-  #f6f2ea);
+  #0b1020 0%,
+  #111827 20%,
+  #1e293b 40%,
+  #312e81 65%,
+  #0f172a 85%,
+  #020617 100%
+  );
 
-  color:#111;
+  background-size:400% 400%;
+  animation:bgMove 15s ease infinite;
+
+  color:white;
 }
 
+/* PREMIUM ANIMATED GRADIENT */
+
+@keyframes bgMove{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
+}
+  
 /* NAV */
 
 nav{
@@ -81,10 +105,9 @@ nav{
   transition:0.3s;
 }
 
-.nav-btn:hover{
-  background:rgba(0,0,0,0.08);
+.nav-btn{
+  color:white;
 }
-
 /* BACK BUTTON */
 
 .back-btn{
@@ -123,7 +146,7 @@ nav{
 }
 
 .title p{
-  color:#555;
+ color:#cbd5e1;
   max-width:700px;
   margin:auto;
   line-height:1.6;
@@ -143,20 +166,13 @@ nav{
   gap:25px;
 }
 
+.nav-center,
 .card{
-  background:rgba(255,255,255,0.35);
-
-  backdrop-filter:blur(6px);
-
-  border-radius:25px;
-
-  padding:30px;
-
-  text-align:center;
-
-  transition:0.3s;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.08);
 }
-
+  
 .card:hover{
   transform:translateY(-6px);
 }
@@ -175,7 +191,7 @@ nav{
 }
 
 .card p{
-  color:#555;
+color:#cbd5e1;
   line-height:1.6;
   margin-bottom:20px;
 }
